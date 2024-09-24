@@ -71,12 +71,12 @@ Format the output in json array with 'domains' as key and no more details.'''
 TURN_ENTITY_EXTRACTION_TEMPLATE = '''I will provide you the definition of the entities you need to extract, the sentence from where your extract the entities and the output format:
 Entity definition:
 -DAY: Any format of explicit dates.
--TIME: explicit time values. Normalize the time to 24-format.
+-TIME: explicit time values like 8:00, 17:00. Please normalize the time to 24-format.
 -NUMBER: Any format of number.
 -PRICE: price
 -LOCATION:  geographic location, address, city, town or area
 -NAME: Name of hotel, train station, restaurant or attraction
--TYPE: food category, taxi car type , attraction type or accommodation type
+-TYPE: food category (value could be Italian, ...), taxi car type (value could be tesla, white VW, ...), attraction type or accommodation type (value could be hotel or guesthouse)
 -RANGE: price range
 -CODE:  reference number, postcode or id.
 -BOOLEAN: true or false for exists or doesn't exist

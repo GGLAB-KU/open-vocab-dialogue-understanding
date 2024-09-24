@@ -78,10 +78,7 @@ def parse_dialogues(dialogues_data):
                  'history': copy.deepcopy(dialogue_history)
              }
             dialogue_history.append(f"{speaker}: {text}")
-            # to append slots to the user turn as well
-            #### WARNING: commented for debugging
-            #if speaker == 'SYSTEM':
-                #processed_turns[str(turn_index-1)]['domains']=domains
+
             processed_turns[str(turn_index)]=turn_data
 
         dialogues[dialogue_id] = processed_turns

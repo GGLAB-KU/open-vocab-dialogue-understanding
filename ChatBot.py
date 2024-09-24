@@ -11,7 +11,8 @@ import requests
 import re
 import replicate
 import prompts
-from octoai.client import Client as octoai_client
+from octoai.text_gen import ChatMessage
+from octoai.client import OctoAI
 import logging
 import logging.config
 
@@ -34,7 +35,6 @@ class ChatBot:
         'CHATGPT': {'temperature': 0.3, 'top_p': 0.9, 'EOS': '\n', 'max_request_repeat_count': 5},
         'PALM': {'temperature': 0.8, 'top_p': 1, 'EOS': '\n', 'max_request_repeat_count': 5},
         'GEMINI': {'temperature': 0.8, 'top_p': 1, 'EOS': '\n', 'max_request_repeat_count': 5},
-        #'LLAMA': {'temperature': 0.7, 'top_p': 0.9, 'EOS': '\n', 'max_request_repeat_count': 50},# for MutliWOZ
         'LLAMA': {'temperature': 0.25, 'top_p': 0.9, 'EOS': '\n', 'max_request_repeat_count': 5},
         'QWEN': {'temperature': 0.25, 'top_p': 1, 'EOS': '<|im_end|>', 'max_request_repeat_count': 5},
         'VICUNA': {'temperature': 0.1, 'top_p': 1, 'EOS': '\n', 'max_request_repeat_count': 5},
@@ -98,7 +98,7 @@ class ChatBot:
 
         elif model in self.octoai_models:
             self.logger.info('Initiate OCTOAI')
-            self.octoai = octoai_client(token=os.getenv("OCATOAI_API_TOKEN"))
+            self.octoai = OctoAI(api_key=os.getenv("OCATOAI_API_TOKEN"))
 
         elif model in self.togetherai_models:
             self.logger.info('Initiate TogetherAI')
@@ -219,9 +219,6 @@ class ChatBot:
                         "role": "user", "content": "{0}".format(prompt)}],
                     temperature=temperature,
                     response_format={"type": "json_object"},
-                    # top_p=top_p,
-                    # frequency_penalty= 0,
-                    # presence_penalty=0,
                     max_tokens=2048
                 )
                 answer = completion.choices[0].message.content
@@ -231,9 +228,6 @@ class ChatBot:
                     messages=[{"role": "system", "content": "You are ChatGPT, a large language model trained by OpenAI. Answer as concisely as possible."}, {
                         "role": "user", "content": "{0}".format(prompt)}],
                     temperature=temperature,
-                    # top_p=top_p,
-                    # frequency_penalty= 0,
-                    # presence_penalty=0,
                     max_tokens=2048
                 )
                 answer = completion.choices[0].message.content
@@ -536,9 +530,6 @@ class ChatBot:
                 active_turns = []
                 active_speakers = []
 
-        # Convert messages to a readable format (optional)
-        # chat_log = "\n".join(
-        #    f"{msg['role'].title()}: {msg['content']}" for msg in messages)
         chat_log = messages
         return chat_log
 
@@ -599,9 +590,6 @@ class ChatBot:
                 active_turns = []
                 active_speakers = []
 
-        # Convert messages to a readable format (optional)
-        # chat_log = "\n".join(
-        #    f"{msg['role'].title()}: {msg['content']}" for msg in messages)
         chat_log = messages
         return chat_log
     
@@ -662,9 +650,6 @@ class ChatBot:
                 active_turns = []
                 active_speakers = []
 
-        # Convert messages to a readable format (optional)
-        # chat_log = "\n".join(
-        #    f"{msg['role'].title()}: {msg['content']}" for msg in messages)
         chat_log = messages
         return chat_log
     

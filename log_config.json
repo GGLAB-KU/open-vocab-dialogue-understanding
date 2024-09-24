@@ -1,0 +1,24 @@
+{
+    "version": 1,
+    "formatters": {
+        "standard": {
+            "format": "%(asctime)s - %(levelname)s - %(funcName)s() - %(message)s"
+        }
+    },
+    "handlers": {
+        "fileHandler": {
+            "class": "logging.handlers.RotatingFileHandler",
+            "formatter": "standard",
+            "filename": "chatbot.log",
+            "mode": "a",
+            "maxBytes": 6e+7,
+            "backupCount": 5
+        }
+    },
+    "loggers": {
+        "chatbot": {
+            "handlers": ["fileHandler"],
+            "level": "DEBUG"
+        }
+    }
+}

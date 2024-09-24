@@ -90,7 +90,8 @@ class Dataset:
         return raw_data
 
 def main():
-    dataset = Dataset('MWZ', '/data/MultiWOZ_2.5/domains.json','/datasets/MultiWOZ2.4/data/MULTIWOZ2.4')
+    dataset = Dataset('MWZ', '/home/asafa/workspace/zero-shot-qa-driven-dst/data/MultiWOZ_2.5/domains.json',
+                      '/home/asafa/workspace/datasets/MultiWOZ2.4/data/MULTIWOZ2.4')
     dataset.parse()
     predicted_data = dataset.get_prediction_data('test')
     # print(predicted_data)
