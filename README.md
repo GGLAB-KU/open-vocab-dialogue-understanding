@@ -14,7 +14,9 @@ To reproduce the experiments, follow these steps:
 
 1. Download the datasets from the links above and extract them into a `dataset` directory.
 2. Due to the size and cost of performing the experiments for all the test splits, we provide a Jupyter Notebook (`dst.ipynb`) that can be configured to run on specific parts of the dataset.
-   
+## Configuring ChatBot.py ##
+You need to configure the LLMs APIs (keys, URLs) in the `ChatBot.py`. We provide several methods to access the open-source LLMs there.
+
 ### Domain Experiment
 
 The first step is to run the **Domain Experiment** by configuring the following parameters in the notebook:
