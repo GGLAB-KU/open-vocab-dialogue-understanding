@@ -35,6 +35,11 @@ dataset_type = 'SGD'  # Dataset format: 'SGD' or 'MWZ'
 After running the experiment, you will get a prediction file in data/{dataset_split} with the following format:
 {model_name}-{sub_model}_{prompt_type}_{prediction_level}_dialogues.json
 
+Additionally, specify the dialogue range with the following parameters:
+```python
+test_dialogue_lower_index = 0  # Lower index for test dialogues
+test_dialogue_upper_index = 1001  # Upper index for test dialogues
+```
 ### DST Expirement
 
 Next, run the **DST Experiment** by configuring these parameters in the notebook:
