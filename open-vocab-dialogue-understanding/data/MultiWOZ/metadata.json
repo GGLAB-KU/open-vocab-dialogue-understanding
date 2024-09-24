@@ -1,0 +1,952 @@
+{
+    "domains": {
+        "Restaurant": {
+            "description":"Find or reserve restaurant",
+            "services": {
+                "Restaurant": "Restaurant domain"
+            },
+            "intents": {
+                "find-restaurant": "The user is looking for information on restaurants, such as cuisine types, locations, ratings, and menus to identify a suitable dining option.",
+                "book-restaurant": "The user intends to reserve a table at a specific restaurant for a certain date and time, often providing details or after asking the system to find it"
+            },
+            "slots": {
+                "name": {
+                    "aliases": [],
+                    "description": "the name of the resturant",
+                    "possible_values": [],
+                    "alternatives": [],
+                    "category": "NAME",
+                    "multiwoz_2.2": "name",
+                    "trackable": true
+                },
+                "price-range": {
+                    "aliases": [
+                        "pricerange"
+                    ],
+                    "description": "the span of prices within a particular category or for a specific set of products or services, like cheap, moderate, expensive",
+                    "possible_values": [
+                        "cheap",
+                        "expensive",
+                        "moderate"
+                    ],
+                    "alternatives": [],
+                    "category": "RANGE",
+                    "multiwoz_2.2": "pricerange",
+                    "trackable": true
+                },
+                "area": {
+                    "aliases": [],
+                    "description": "the area or side of the town or the city where the restaurant is located in",
+                    "possible_values": [
+                        "centre",
+                        "east",
+                        "north",
+                        "south",
+                        "west"
+                    ],
+                    "alternatives": [
+                        "address",
+                        "post-code"
+                    ],
+                    "category": "LOCATION",
+                    "multiwoz_2.2": "area",
+                    "trackable": true
+                },
+                "book-day": {
+                    "aliases": [
+                        "bookday",
+                        "day"
+                    ],
+                    "description": "the specific weekday or date on which a booking or reservation is made or assigned. Can be any day as well",
+                    "possible_values": [
+                        "monday",
+                        "tuesday",
+                        "wednesday",
+                        "thursday",
+                        "friday",
+                        "saturday",
+                        "sunday"
+                    ],
+                    "alternatives": [],
+                    "category": "DAY",
+                    "multiwoz_2.2": "bookday",
+                    "trackable": true
+                },
+                "book-people-count": {
+                    "aliases": [
+                        "bookpeople",
+                        "people"
+                    ],
+                    "description": "the number of people a booking or reservation is made for",
+                    "possible_values": [
+                        "1",
+                        "2",
+                        "3",
+                        "4",
+                        "5",
+                        "6",
+                        "7",
+                        "8"
+                    ],
+                    "alternatives": [],
+                    "category": "NUMBER",
+                    "multiwoz_2.2": "bookpeople",
+                    "trackable": true
+                },
+                "food": {
+                    "aliases": [],
+                    "description": "the type of food offered by the place, like Italian, Mexican, Asian, Chineese",
+                    "possible_values": [],
+                    "alternatives": [],
+                    "category": "TYPE",
+                    "multiwoz_2.2": "food",
+                    "trackable": true
+                },
+                "book-time": {
+                    "aliases": [
+                        "booktime",
+                        "time"
+                    ],
+                    "description": "the specific time or duration allocated for a booking, reservation or anything else",
+                    "possible_values": [],
+                    "alternatives": [
+                        "time"
+                    ],
+                    "category": "TIME",
+                    "multiwoz_2.2": "booktime",
+                    "trackable": true
+                },
+                "address": {
+                    "aliases": [],
+                    "description": "the address of the resturant or region (not the post-code)",
+                    "possible_values": [],
+                    "alternatives": [
+                        "area",
+                        "post-code"
+                    ],
+                    "category": "LOCATION",
+                    "multiwoz_2.2": "address",
+                    "trackable": false
+                },
+                "phone": {
+                    "aliases": [],
+                    "description": "the phone or contact number",
+                    "possible_values": [],
+                    "alternatives": [],
+                    "category": "NUMBER",
+                    "multiwoz_2.2": "phone",
+                    "trackable": false
+                },
+                "post-code": {
+                    "aliases": [
+                        "postcode"
+                    ],
+                    "description": "the postal code (not the address)",
+                    "possible_values": [],
+                    "alternatives": [
+                        "address",
+                        "area"
+                    ],
+                    "category": "CODE",
+                    "multiwoz_2.2": "postcode",
+                    "trackable": false
+                },
+                "reference-code": {
+                    "aliases": [
+                        "ref",
+                        "reference"
+                    ],
+                    "description": "The reference number or confirmation code for the booking",
+                    "possible_values": [],
+                    "alternatives": [],
+                    "category": "CODE",
+                    "multiwoz_2.2": "ref",
+                    "trackable": false
+                }
+            }
+        },
+        "Attraction": {
+            "description":"Find attraction",
+            "services": {
+                "Attraction": "Attraction domain"
+            },
+            "intents": {
+                "find-attraction": ""
+            },
+            "slots": {
+                "name": {
+                    "aliases": [],
+                    "description": "the name of the attraction (don't include restaurants and hotels)",
+                    "possible_values": [],
+                    "alternatives": [],
+                    "category": "NAME",
+                    "multiwoz_2.2": "name",
+                    "trackable": true
+                },
+                "type": {
+                    "aliases": [],
+                    "description": "the type of attraction",
+                    "possible_values": [
+                        "architecture",
+                        "boat",
+                        "cinema",
+                        "college",
+                        "concerthall",
+                        "entertainment",
+                        "museum",
+                        "multiple sports",
+                        "nightclub",
+                        "park",
+                        "swimmingpool",
+                        "theatre"
+                    ],
+                    "alternatives": [],
+                    "category": "TYPE",
+                    "multiwoz_2.2": "type",
+                    "trackable": true
+                },
+                "area": {
+                    "aliases": [],
+                    "description": "the area or side of the town or the city where the attraction is located in",
+                    "possible_values": [
+                        "centre",
+                        "east",
+                        "north",
+                        "south",
+                        "west"
+                    ],
+                    "alternatives": [
+                        "address",
+                        "post-code"
+                    ],
+                    "category": "LOCATION",
+                    "multiwoz_2.2": "area",
+                    "trackable": true
+                },
+                "address": {
+                    "aliases": [],
+                    "description": "the address of the attraction (not the post-code)",
+                    "possible_values": [],
+                    "alternatives": [
+                        "area",
+                        "post-code"
+                    ],
+                    "category": "LOCATION",
+                    "multiwoz_2.2": "address",
+                    "trackable": true
+                },
+                "entrance-fee": {
+                    "aliases": [
+                        "entrancefee",
+                        "enterancefee"
+                    ],
+                    "description": "the cost or price that an individual or group is required to pay in order to gain access to a particular place, event, or facility. It is a fee charged for entry or admission",
+                    "possible_values": [],
+                    "alternatives": [
+                        "price",
+                        "entrancefee"
+                    ],
+                    "category": "PRICE",
+                    "multiwoz_2.2": "enterancefee",
+                    "trackable": true
+                },
+                "open-hours": {
+                    "aliases": [
+                        "openhours"
+                    ],
+                    "description": "the scheduled hours during which the attaction is open and accessible to the public",
+                    "possible_values": [],
+                    "alternatives": [
+                        "openhours"
+                    ],
+                    "category": "TIME",
+                    "multiwoz_2.2": "openhours",
+                    "trackable": true
+                },
+                "phone": {
+                    "aliases": [],
+                    "description": "the phone or the contact number of the attraction",
+                    "possible_values": [],
+                    "alternatives": [],
+                    "category": "NUMBER",
+                    "multiwoz_2.2": "phone",
+                    "trackable": false
+                },
+                "post-code": {
+                    "aliases": [
+                        "postcode"
+                    ],
+                    "description": "the attraction postal code (not the address)",
+                    "possible_values": [],
+                    "alternatives": [
+                        "area",
+                        "address"
+                    ],
+                    "category": "CODE",
+                    "multiwoz_2.2": "postcode",
+                    "trackable": false
+                }
+            }
+        },
+        "hotel": {
+            "description":"Find or book hotel",
+            "services": {
+                "hotel": ""
+            },
+            "intents": {
+                "find-hotel": "The user is searching for hotel options, comparing amenities, locations, prices, and reviews to identify a suitable accommodation",
+                "book-hotel": "The user is ready to confirm a stay by reserving a room at a specific hotel, providing personal details"
+            },
+            "slots": {
+                "name": {
+                    "aliases": [],
+                    "description": "the accommodation name",
+                    "alternatives": [],
+                    "possible_values": [],
+                    "category": "NAME",
+                    "multiwoz_2.2": "name",
+                    "trackable": true
+                },
+                "type": {
+                    "aliases": [],
+                    "description": "type of the accommodation",
+                    "alternatives": [],
+                    "possible_values": [
+                        "guesthouse",
+                        "hotel"
+                    ],
+                    "category": "TYPE",
+                    "multiwoz_2.2": "type",
+                    "trackable": true
+                },
+                "price-range": {
+                    "aliases": [
+                        "pricerange"
+                    ],
+                    "description": "the span of prices within a particular category or for accommodation",
+                    "alternatives": [],
+                    "possible_values": [
+                        "expensive",
+                        "cheap",
+                        "moderate"
+                    ],
+                    "category": "RANGE",
+                    "multiwoz_2.2": "pricerange",
+                    "trackable": true
+                },
+                "parking": {
+                    "aliases": [],
+                    "description": "whether the accommodation has parking",
+                    "possible_values": [
+                        "free",
+                        "no",
+                        "yes"
+                    ],
+                    "alternatives": [],
+                    "category": "BOOLEAN",
+                    "multiwoz_2.2": "parking",
+                    "trackable": true
+                },
+                "internet": {
+                    "aliases": [],
+                    "description": "whether the accommodation has internet",
+                    "possible_values": [
+                        "free",
+                        "no",
+                        "yes"
+                    ],
+                    "alternatives": [],
+                    "category": "BOOLEAN",
+                    "multiwoz_2.2": "internet",
+                    "trackable": true
+                },
+                "stars": {
+                    "aliases": [],
+                    "description": "star rating or class of the accommodation",
+                    "possible_values": [
+                        "0",
+                        "1",
+                        "2",
+                        "3",
+                        "4",
+                        "5"
+                    ],
+                    "alternatives": [],
+                    "category": "NUMBER",
+                    "multiwoz_2.2": "stars",
+                    "trackable": true
+                },
+                "book-day": {
+                    "aliases": [
+                        "bookday",
+                        "day"
+                    ],
+                    "description": "the specific weekday or date to start booking the hotel in",
+                    "possible_values": [
+                        "monday",
+                        "tuesday",
+                        "wednesday",
+                        "thursday",
+                        "friday",
+                        "saturday",
+                        "sunday"
+                    ],
+                    "alternatives": [],
+                    "category": "DAY",
+                    "multiwoz_2.2": "bookday",
+                    "trackable": true
+                },
+                "book-people": {
+                    "aliases": [
+                        "bookpeople",
+                        "people"
+                    ],
+                    "description": "the number of people a booking or reservation is made for. If not mentioned at the booking time, then return 1",
+                    "possible_values": [
+                        "1",
+                        "2",
+                        "3",
+                        "4",
+                        "5",
+                        "6",
+                        "7",
+                        "8"
+                    ],
+                    "alternatives": [],
+                    "category": "NUMBER",
+                    "multiwoz_2.2": "bookpeople",
+                    "trackable": true
+                },
+                "book-stay": {
+                    "aliases": [
+                        "bookstay",
+                        "stay"
+                    ],
+                    "description": "the expected number of days or nights the accommodation booked for",
+                    "possible_values": [
+                        "1",
+                        "2",
+                        "3",
+                        "4",
+                        "5",
+                        "6",
+                        "7",
+                        "8"
+                    ],
+                    "alternatives": [],
+                    "category": "NUMBER",
+                    "multiwoz_2.2": "bookstay",
+                    "trackable": true
+                },
+                "area": {
+                    "aliases": [],
+                    "description": "The area or side of the town or the city where the accommodation is located in",
+                    "possible_values": [
+                        "centre",
+                        "east",
+                        "north",
+                        "south",
+                        "west"
+                    ],
+                    "alternatives": [
+                        "post-code",
+                        "address"
+                    ],
+                    "category": "LOCATION",
+                    "multiwoz_2.2": "area",
+                    "trackable": true
+                },
+                "address": {
+                    "aliases": [],
+                    "description": "the accommodation address (not the post-code)",
+                    "possible_values": [],
+                    "alternatives": [
+                        "area",
+                        "post-code"
+                    ],
+                    "category": "LOCATION",
+                    "multiwoz_2.2": "address",
+                    "trackable": false
+                },
+                "phone": {
+                    "aliases": [],
+                    "description": "the accommodation phone or contact number",
+                    "possible_values": [],
+                    "alternatives": [],
+                    "category": "NUMBER",
+                    "multiwoz_2.2": "phone",
+                    "trackable": false
+                },
+                "post-code": {
+                    "aliases": [
+                        "postcode"
+                    ],
+                    "description": "the accommodation postal code (not the address)",
+                    "possible_values": [],
+                    "alternatives": [
+                        "address",
+                        "area"
+                    ],
+                    "category": "CODE",
+                    "multiwoz_2.2": "postcode",
+                    "trackable": false
+                },
+                "reference-code": {
+                    "aliases": [
+                        "ref",
+                        "reference"
+                    ],
+                    "description": "The reference number or confirmation code for the booking",
+                    "possible_values": [],
+                    "alternatives": [],
+                    "category": "CODE",
+                    "multiwoz_2.2": "ref",
+                    "trackable": false
+                }
+            }
+        },
+        "taxi": {
+            "description":"Book taxi",
+            "services": {
+                "taxi": "Taxi domain"
+            },
+            "intents": {
+                "book-taxi": ""
+            },
+            "slots": {
+                "destination": {
+                    "aliases": [],
+                    "description": "the location where the passenger wants to be dropped off by the taxi. It can be any region, area, or specific address where the passenger intends to reach at the end of the taxi journey",
+                    "possible_values": [],
+                    "alternatives": [
+                        "address",
+                        "area",
+                        "post-code"
+                    ],
+                    "category": "NAME",
+                    "multiwoz_2.2": "destination",
+                    "trackable": true
+                },
+                "departure": {
+                    "aliases": [],
+                    "description": "the location where the passenger is picked up by the taxi. It can be any region, area, or specific address from where the taxi journey begins",
+                    "possible_values": [],
+                    "alternatives": [
+                        "address",
+                        "area",
+                        "post-code"
+                    ],
+                    "category": "NAME",
+                    "multiwoz_2.2": "departure",
+                    "trackable": true
+                },
+                "leave-at": {
+                    "aliases": [
+                        "leaveat",
+                        "leave"
+                    ],
+                    "description": "the time when the taxi is scheduled to depart or pick up the passenger from the departure location. It indicates the time at which the taxi journey will begin",
+                    "possible_values": [],
+                    "alternatives": [
+                        "time"
+                    ],
+                    "category": "TIME",
+                    "multiwoz_2.2": "leaveat",
+                    "trackable": true
+                },
+                "arrive-by": {
+                    "aliases": [
+                        "arriveby",
+                        "arrive"
+                    ],
+                    "description": "the time by which the taxi is expected to arrive at the destination. It signifies the time at which the passenger aims to reach their destination using the taxi service",
+                    "possible_values": [],
+                    "alternatives": [
+                        "time"
+                    ],
+                    "category": "TIME",
+                    "multiwoz_2.2": "arriveby",
+                    "trackable": true
+                },
+                "phone": {
+                    "aliases": [],
+                    "description": "the taxi phone or contact number",
+                    "possible_values": [],
+                    "alternatives": [],
+                    "category": "NUMBER",
+                    "multiwoz_2.2": "phone",
+                    "trackable": false
+                },
+                "type": {
+                    "aliases": [],
+                    "description": "the car type of the taxi",
+                    "possible_values": [],
+                    "alternatives": [],
+                    "category": "TYPE",
+                    "multiwoz_2.2": "type",
+                    "trackable": false
+                }
+            }
+        },
+        "train": {
+            "description":"Find and book train",
+            "services": {
+                "train": "Train domain"
+            },
+            "intents": {
+                "find-train": "The user is seeking information about train schedules, routes, and availability to explore options and plan a potential journey and is still not sure if he will book a train.",
+                "book-train": "The user is ready to secure a seat on a specific train by providing details and completing a purchase transaction."
+            },
+            "slots": {
+                "destination": {
+                    "aliases": [],
+                    "description": "the destination is the location where the train journey ends. It's the station where the train arrives",
+                    "alternatives": [
+                        "area",
+                        "address"
+                    ],
+                    "possible_values": [
+                        "birmingham new street",
+                        "bishops stortford",
+                        "broxbourne",
+                        "cambridge",
+                        "ely",
+                        "kings lynn",
+                        "leicester",
+                        "london kings cross",
+                        "london liverpool street",
+                        "norwich",
+                        "peterborough",
+                        "stansted airport",
+                        "stevenage"
+                    ],
+                    "category": "LOCATION",
+                    "multiwoz_2.2": "destination",
+                    "trackable": true
+                },
+                "departure": {
+                    "aliases": [],
+                    "description": "the location where the train journey begins. It's the station from which the train departs",
+                    "possible_values": [
+                        "birmingham new street",
+                        "bishops stortford",
+                        "broxbourne",
+                        "cambridge",
+                        "ely",
+                        "kings lynn",
+                        "leicester",
+                        "london kings cross",
+                        "london liverpool street",
+                        "norwich",
+                        "peterborough",
+                        "stansted airport",
+                        "stevenage"
+                    ],
+                    "alternatives": [
+                        "area",
+                        "address",
+                        "post-code"
+                    ],
+                    "category": "LOCATION",
+                    "multiwoz_2.2": "departure",
+                    "trackable": true
+                },
+                "day": {
+                    "aliases": [],
+                    "description": "the train trip weekday",
+                    "possible_values": [
+                        "monday",
+                        "tuesday",
+                        "wednesday",
+                        "thursday",
+                        "friday",
+                        "saturday",
+                        "sunday"
+                    ],
+                    "alternatives": [
+                        "book-day",
+                        "time"
+                    ],
+                    "category": "DAY",
+                    "multiwoz_2.2": "day",
+                    "trackable": true
+                },
+                "train-id": {
+                    "aliases": [
+                        "trainid"
+                    ],
+                    "description": "the id or the number of the train",
+                    "possible_values": [],
+                    "alternatives": [],
+                    "category": "NAME",
+                    "multiwoz_2.2": "trainid",
+                    "trackable": false
+                },
+                "price": {
+                    "aliases": [],
+                    "description": "the train trip price",
+                    "possible_values": [],
+                    "alternatives": [
+                        "pricerange"
+                    ],
+                    "category": "PRICE",
+                    "multiwoz_2.2": "price",
+                    "trackable": true
+                },
+                "duration": {
+                    "aliases": [],
+                    "description": "the train trip duration",
+                    "possible_values": [],
+                    "alternatives": [
+                        "book-stay",
+                        "time"
+                    ],
+                    "category": "NUMBER",
+                    "multiwoz_2.2": "duration",
+                    "trackable": true
+                },
+                "reference-code": {
+                    "aliases": [
+                        "ref",
+                        "reference"
+                    ],
+                    "possible_values": [],
+                    "description": "The reference number or confirmation code for the booking",
+                    "alternatives": [],
+                    "category": "CODE",
+                    "multiwoz_2.2": "ref",
+                    "trackable": false
+                },
+                "leave-at": {
+                    "aliases": [
+                        "leaveat",
+                        "leave"
+                    ],
+                    "description": "the time when the train is scheduled to depart from the departure station",
+                    "possible_values": [],
+                    "alternatives": [
+                        "leaveat",
+                        "time"
+                    ],
+                    "category": "TIME",
+                    "multiwoz_2.2": "leaveat",
+                    "trackable": true
+                },
+                "arrive-by": {
+                    "aliases": [
+                        "arriveby",
+                        "arrive"
+                    ],
+                    "description": "the time by which the train is expected to arrive at the destination station",
+                    "possible_values": [],
+                    "alternatives": [
+                        "time"
+                    ],
+                    "category": "TIME",
+                    "multiwoz_2.2": "arriveby",
+                    "trackable": true
+                },
+                "book-people-count": {
+                    "aliases": [
+                        "bookpeople",
+                        "people"
+                    ],
+                    "description": "the number of people a booking or reservation is made for.",
+                    "possible_values": [
+                        "0",
+                        "1",
+                        "2",
+                        "3",
+                        "4",
+                        "5",
+                        "6",
+                        "7",
+                        "8",
+                        "9",
+                        "10",
+                        "15"
+                    ],
+                    "alternatives": [],
+                    "category": "NUMBER",
+                    "multiwoz_2.2": "bookpeople",
+                    "trackable": true
+                }
+            }
+        },
+        "Bus": {
+            "description":"Find and book bus",
+            "services": {
+                "bus": "Bus domain"
+            },
+            "intents": {
+                "find-bus": "The user is seeking information about bus schedules, routes, and availability to explore options and plan a potential journey and is still not sure if he will book a bus."
+            },
+            "slots": {
+                "destination": {
+                    "aliases": [],
+                    "description": "the destination region or area for the bus trip",
+                    "possible_values": [],
+                    "alternatives": [
+                        "area",
+                        "address",
+                        "post-code"
+                    ],
+                    "category": "LOCATION",
+                    "multiwoz_2.2": "destination",
+                    "trackable": true
+                },
+                "departure": {
+                    "aliases": [],
+                    "description": "the departure region or area for the bus trip",
+                    "possible_values": [],
+                    "alternatives": [
+                        "area",
+                        "address",
+                        "post-code"
+                    ],
+                    "category": "LOCATION",
+                    "multiwoz_2.2": "departure",
+                    "trackable": true
+                },
+                "leave-at": {
+                    "aliases": [
+                        "leaveat"
+                    ],
+                    "description": "time when the bus will leave at",
+                    "possible_values": [],
+                    "alternatives": [
+                        "time"
+                    ],
+                    "category": "TIME",
+                    "multiwoz_2.2": "leaveat",
+                    "trackable": true
+                },
+                "day": {
+                    "aliases": [],
+                    "description": "day to use the bus tickets",
+                    "possible_values": [
+                        "wednesday"
+                    ],
+                    "alternatives": [
+                        "time"
+                    ],
+                    "category": "DAY",
+                    "multiwoz_2.2": "day",
+                    "trackable": true
+                }
+            }
+        },
+        "Hospital": {
+            "description":"Find hospital",
+            "services": {
+                "hospital": "Hospital domain"
+            },
+            "intents": {
+                "find-hospital": ""
+            },
+            "slots": {
+                "department": {
+                    "aliases": [],
+                    "description": "the specific division or unit within a hospital that specializes in a particular area of medical care or provides specific services",
+                    "possible_values": [],
+                    "alternatives": [],
+                    "category": "NAME",
+                    "multiwoz_2.2": "department",
+                    "trackable": true
+                },
+                "address": {
+                    "aliases": [],
+                    "description": "the hospital address (not the post-code)",
+                    "possible_values": [],
+                    "alternatives": [
+                        "area",
+                        "post-code"
+                    ],
+                    "category": "LOCATION",
+                    "multiwoz_2.2": "address",
+                    "trackable": false
+                },
+                "phone": {
+                    "aliases": [],
+                    "description": "the hospital phone or contact number",
+                    "possible_values": [],
+                    "alternatives": [],
+                    "category": "NUMBER",
+                    "multiwoz_2.2": "phone",
+                    "trackable": false
+                },
+                "post-code": {
+                    "aliases": [
+                        "postcode"
+                    ],
+                    "description": "the hospital postal code (not the address)",
+                    "possible_values": [],
+                    "alternatives": [
+                        "area",
+                        "address"
+                    ],
+                    "category": "CODE",
+                    "multiwoz_2.2": "postcode",
+                    "trackable": false
+                }
+            }
+        },
+        "Police": {
+            "description":"Find police station",
+            "services": {
+                "police": "Police domain"
+            },
+            "intents": {
+                "find-police": ""
+            },
+            "slots": {
+                "name": {
+                    "aliases": [],
+                    "description": "the police station or department name",
+                    "possible_values": [
+                        "parkside police station"
+                    ],
+                    "alternatives": [],
+                    "category": "NAME",
+                    "multiwoz_2.2": "name",
+                    "trackable": true
+                },
+                "address": {
+                    "aliases": [],
+                    "description": "the address of the police department or station (not the post-code)",
+                    "possible_values": [],
+                    "alternatives": [
+                        "area",
+                        "post-code"
+                    ],
+                    "category": "LOCATION",
+                    "multiwoz_2.2": "address",
+                    "trackable": false
+                },
+                "phone": {
+                    "aliases": [],
+                    "description": "the police department or station phone or contact number",
+                    "possible_values": [],
+                    "alternatives": [],
+                    "category": "NUMBER",
+                    "multiwoz_2.2": "phone",
+                    "trackable": false
+                },
+                "post-code": {
+                    "aliases": [
+                        "postcode"
+                    ],
+                    "description": "the postal code of the police station or department (not the address)",
+                    "possible_values": [],
+                    "alternatives": [
+                        "area",
+                        "address"
+                    ],
+                    "category": "CODE",
+                    "multiwoz_2.2": "postcode",
+                    "trackable": false
+                }
+            }
+        }
+    }
+}

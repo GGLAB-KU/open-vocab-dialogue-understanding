@@ -1,0 +1,16 @@
+{
+    "PALM": "{prompt_input}",
+    "GEMINI": "{prompt_input}",
+    "CHATGPT": "{prompt_input}",
+    "LLAMA": "{prompt_input}",
+    "LLAMA_BK": "<s>[INST]\n{prompt_input}\n[\/INST]",
+    "COHERE": "{prompt_input}",
+    "MISTRALAI_BK": "[INST]\n{prompt_input}\n[\/INST]",
+    "MISTRALAI": "{prompt_input}\nAnswer:",
+    "WIZARDLM_bk": "Below is an instruction that describes a task. Write a response that appropriately completes the request. \n### Instruction:\n{prompt_input}\n###Response:",
+    "WIZARDLM": "{prompt_input}",
+    "STARLING":"GPT4 Correct User: {prompt_input}<|end_of_turn|>GPT4 Correct Assistant:",
+    "QWEN":"{prompt_input}\nAnswer:",
+    "KOALA":"{prompt_input}\nAnswer:",
+    "VICUNA":"{prompt_input}\nAnswer:"
+}

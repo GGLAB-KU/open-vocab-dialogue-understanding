@@ -1,0 +1,9 @@
+bardapi
+openai
+word2number
+google-generativeai
+gradio_client
+cohere
+python-Levenshtein
+nltk 
+rapidwuzzy
